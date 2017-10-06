@@ -3,8 +3,12 @@
 
 def key_for_min_value(name_hash)
   smallest = ""
-  name_hash.each do |name|
-    smallest = name if name_hash[name] < name_hash[smallest] || smallest == ""
+  name_hash.each do |name, value|
+    if smallest == ""
+      smallest = name
+    elsif name[value] < smallest[value]
+      smallest = name
+    end
   end
   smallest
 end
